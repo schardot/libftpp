@@ -1,17 +1,40 @@
-SRCS = ft_free_matrix.c ft_matrixdup.c ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c ft_strlen.c ft_memset.c ft_bzero.c ft_memcpy.c ft_memmove.c ft_strlcpy.c ft_strlcat.c ft_toupper.c ft_tolower.c ft_strrchr.c ft_strchr.c ft_strncmp.c ft_memchr.c ft_memcmp.c ft_strnstr.c ft_atoi.c ft_calloc.c ft_strdup.c ft_substr.c ft_strjoin.c ft_strtrim.c ft_split.c ft_itoa.c ft_strmapi.c ft_striteri.c ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c
+CC = cc
+RM = rm -f
+CFLAGS = -Wall -Wextra -Werror
 
-BONUS = ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstmap.c
+SRCS = .
 
-OBJS_S = $(SRCS:.c=.o)
-OBJS_B = $(BONUS:.c=.o)
+MX_DIR = matrix
+MATRIX = $(MX_DIR)/ft_free_matrix.c $(MX_DIR)/ft_matrixdup.c $(MX_DIR)/ft_split.c
+
+CH_DIR = char_checks
+CHAR_CH = $(CH_DIR)/ft_isalpha.c $(CH_DIR)/ft_isdigit.c $(CH_DIR)/ft_isalnum.c $(CH_DIR)/ft_isascii.c $(CH_DIR)/ft_isprint.c $(CH_DIR)/ft_toupper.c $(CH_DIR)/ft_tolower.c \
+	$(CH_DIR)/ft_isspace.c
+
+S_DIR = string
+STRING = $(S_DIR)/ft_strlen.c $(S_DIR)/ft_strlcpy.c $(S_DIR)/ft_strlcat.c $(S_DIR)/ft_strrchr.c $(S_DIR)/ft_strchr.c $(S_DIR)/ft_strncmp.c $(S_DIR)/ft_strnstr.c \
+	$(S_DIR)/ft_strdup.c $(S_DIR)/ft_substr.c $(S_DIR)/ft_strjoin.c $(S_DIR)/ft_strtrim.c $(S_DIR)/ft_strmapi.c $(S_DIR)/ft_striteri.c $(S_DIR)/ $(S_DIR)/
+
+MEM_DIR = memory
+MEM = $(MEM_DIR)/ft_memset.c $(MEM_DIR)/ft_bzero.c $(MEM_DIR)/ft_memcpy.c $(MEM_DIR)/ft_memmove.c $(MEM_DIR)/ft_memchr.c $(MEM_DIR)/ft_calloc.c $(MEM_DIR)/ $(MEM_DIR)/ $(MEM_DIR)/
+
+CV_DIR = conversion
+CONV = $(CV_DIR)/ft_atoi.c $(CV_DIR)/ft_itoa.c $(CV_DIR)/ $(CV_DIR)/ $(CV_DIR)/ $(CV_DIR)/ $(CV_DIR)/ $(CV_DIR)/ $(CV_DIR)/ $(CV_DIR)/ $(CV_DIR)/
+
+FD_DIR = fd_io
+FDIO = $(FD_DIR)/ft_putchar_fd.c $(FD_DIR)/ft_putendl_fd.c $(FD_DIR)/ft_putnbr_fd.c $(FD_DIR)/ft_putstr_fd.c
+
+LS_DIR = list
+LIST = $(LS_DIR)/ft_lstnew.c $(LS_DIR)/ft_lstadd_front.c $(LS_DIR)/ft_lstsize.c $(LS_DIR)/ft_lstlast.c $(LS_DIR)/ft_lstadd_back.c $(LS_DIR)/ft_lstdelone.c $(LS_DIR)/ft_lstclear.c \
+	$(LS_DIR)/ft_lstiter.c $(LS_DIR)/ft_lstmap.c
+
+# Combine all source files
+SRCS = $(MATRIX) $(CHAR_CH) $(STRING) $(MEM) $(CONV) $(FDIO) $(LIST)
+OBJS = $(SRCS:%.c=$(OBJDIR)/%.o)
 
 GNL_DIR = get_next_line
 GNL_SRCS = $(GNL_DIR)/get_next_line.c $(GNL_DIR)/get_next_line_utils.c
 GNL_OBJS = $(GNL_SRCS:$(GNL_DIR)/%.c=$(OBJDIR)/%.o)
-
-CC = cc
-RM = rm -f
-CFLAGS = -Wall -Wextra -Werror
 
 PRINTF_DIR = ./ft_printf
 PRINTF_LIB = $(PRINTF_DIR)/libftprintf.a
@@ -21,11 +44,8 @@ OBJDIR = obj
 
 all: $(NAME)
 
-bonus: $(OBJS_B) $(OBJS_S) $(GNL_OBJS)
-	ar r $(NAME) $(OBJS_B) $(OBJS_S) $(GNL_OBJS)
-
-$(NAME): $(OBJS_S) $(GNL_OBJS) $(PRINTF_LIB)
-	ar r $(NAME) $(OBJS_S) $(GNL_OBJS)
+$(NAME): $(OBJS) $(GNL_OBJS) $(PRINTF_LIB)
+	ar r $(NAME) $(OBJS) $(GNL_OBJS)
 
 $(PRINTF_LIB):
 	$(MAKE) -C $(PRINTF_DIR)
@@ -42,11 +62,12 @@ $(OBJDIR)/%.o: $(GNL_DIR)/%.c | $(OBJDIR)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	$(RM) $(OBJS_S) $(OBJS_B) $(GNL_OBJS)
+	$(RM) -rf $(OBJDIR)/*.o
 	$(MAKE) -C $(PRINTF_DIR) fclean
 
+# Full clean
 fclean: clean
-	$(RM) $(NAME)
+	$(RM) -f $(NAME)
 	$(MAKE) -C $(PRINTF_DIR) fclean
 
 re: fclean all
