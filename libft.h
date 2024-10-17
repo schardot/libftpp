@@ -6,7 +6,7 @@
 /*   By: nataliaschardosim <nataliaschardosim@st    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/12 19:23:45 by nataliascha       #+#    #+#             */
-/*   Updated: 2024/10/16 12:58:20 by nataliascha      ###   ########.fr       */
+/*   Updated: 2024/10/17 09:48:31 by nataliascha      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,6 @@ char		*ft_substr(char const *s, unsigned int start, size_t len);
 char		*ft_strjoin(char const *s1, char const *s2);
 char		*ft_strtrim(char const *s1, char const *set);
 char		**ft_split(char const *s, char c);
-char		*ft_itoa(int n);
 char		*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 void		ft_striteri(char *s, void (*f)(unsigned int, char *));
 
@@ -75,6 +74,8 @@ void		*ft_calloc(size_t count, size_t size);
 /*                             Number Conversion                             */
 /* ------------------------------------------------------------------------- */
 int			ft_atoi(const char *nptr);
+void		ft_putnbr_base(int nbr, char *base);
+char		*ft_itoa(int n);
 
 /* ------------------------------------------------------------------------- */
 /*                           Output Functions                                */
