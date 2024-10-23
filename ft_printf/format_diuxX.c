@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   format_diuxX.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nataliaschardosim <marvin@42.fr>           +#+  +:+       +#+        */
+/*   By: nataliaschardosim <nataliaschardosim@st    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/29 22:23:14 by nataliaschard     #+#    #+#             */
-/*   Updated: 2024/05/29 22:23:17 by nataliaschard    ###   ########.fr       */
+/*   Created: 2024/05/29 22:23:14 by nataliascha       #+#    #+#             */
+/*   Updated: 2024/10/22 16:37:35 by nataliascha      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ int	ft_printnbr_unsigned(unsigned int nb)
 	return (len);
 }
 
-int	ft_putnbr_base(unsigned int nbr, const char *base)
+int	fft_putnbr_base(unsigned int nbr, const char *base)
 {
 	int				len;
 	unsigned int	base_len;
@@ -63,8 +63,8 @@ int	ft_putnbr_base(unsigned int nbr, const char *base)
 		len += ft_printchar(base[nbr]);
 	else
 	{
-		len += ft_putnbr_base(nbr / base_len, base);
-		len += ft_putnbr_base(nbr % base_len, base);
+		len += fft_putnbr_base(nbr / base_len, base);
+		len += fft_putnbr_base(nbr % base_len, base);
 	}
 	return (len);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nleite-s <nleite-s@student.42berlin.d      +#+  +:+       +#+        */
+/*   By: nataliaschardosim <nataliaschardosim@st    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 14:31:26 by nleite-s          #+#    #+#             */
-/*   Updated: 2024/07/08 14:31:28 by nleite-s         ###   ########.fr       */
+/*   Updated: 2024/10/22 16:37:20 by nataliascha      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,9 +57,9 @@ int	ft_format(int c, va_list *args)
 	else if (c == 'u')
 		len += ft_printnbr_unsigned(va_arg(*args, unsigned int));
 	else if (c == 'x')
-		len = ft_putnbr_base(va_arg(*args, unsigned int), "0123456789abcdef");
+		len = fft_putnbr_base(va_arg(*args, unsigned int), "0123456789abcdef");
 	else if (c == 'X')
-		len = ft_putnbr_base(va_arg(*args, unsigned int), "0123456789ABCDEF");
+		len = fft_putnbr_base(va_arg(*args, unsigned int), "0123456789ABCDEF");
 	else if (c == '%')
 		len = ft_printchar('%');
 	return (len);
