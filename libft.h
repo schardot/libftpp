@@ -6,7 +6,7 @@
 /*   By: nataliaschardosim <nataliaschardosim@st    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/12 19:23:45 by nataliascha       #+#    #+#             */
-/*   Updated: 2024/10/17 09:48:31 by nataliascha      ###   ########.fr       */
+/*   Updated: 2024/10/24 12:40:49 by nataliascha      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,7 @@ void		*ft_memchr(const void *s, int c, size_t n);
 int			ft_memcmp(const void *s1, const void *s2, size_t n);
 void		ft_bzero(void *s, size_t n);
 void		*ft_calloc(size_t count, size_t size);
+void		*ft_realloc(void *ptr, int old_size, int new_size);
 
 /* ------------------------------------------------------------------------- */
 /*                             Number Conversion                             */
@@ -103,5 +104,7 @@ t_list		*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 /* ------------------------------------------------------------------------- */
 void		ft_free_matrix(char **matrix);
 char		**ft_matrixdup(char **matrix, int height);
+size_t		ft_str2dlen(char **array);
+char		**ft_append_to_array(char **matrix, char *str, int size);
 
 #endif
