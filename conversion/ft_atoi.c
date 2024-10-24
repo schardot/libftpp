@@ -6,7 +6,7 @@
 /*   By: nataliaschardosim <nataliaschardosim@st    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 16:29:52 by nleite-s          #+#    #+#             */
-/*   Updated: 2024/10/16 12:46:20 by nataliascha      ###   ########.fr       */
+/*   Updated: 2024/10/24 12:47:43 by nataliascha      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,3 @@ int	ft_atoi(const char *nptr)
 	r *= sign;
 	return (r);
 }
-
-

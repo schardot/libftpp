@@ -6,7 +6,7 @@
 /*   By: nataliaschardosim <nataliaschardosim@st    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 16:29:24 by nleite-s          #+#    #+#             */
-/*   Updated: 2024/10/16 12:50:24 by nataliascha      ###   ########.fr       */
+/*   Updated: 2024/10/24 12:47:18 by nataliascha      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,3 @@ size_t	ft_strlen(const char *s)
 	}
 	return (length);
 }
-// #include <stdio.h>
-
-// int main(void)
-// {
-// 	char    *s = "palavra";
-// 	printf("%ld", ft_strlen(s));
-// }

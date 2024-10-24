@@ -6,7 +6,7 @@
 /*   By: nataliaschardosim <nataliaschardosim@st    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 18:36:48 by nleite-s          #+#    #+#             */
-/*   Updated: 2024/10/16 12:41:50 by nataliascha      ###   ########.fr       */
+/*   Updated: 2024/10/24 12:48:04 by nataliascha      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,4 +16,3 @@ int	ft_isprint(int c)
 {
 	return (32 <= c && c < 127);
 }
-
